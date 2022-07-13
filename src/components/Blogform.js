@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addPost } from "../redux/actions/postsAction";
-import { getAllPosts } from "../redux/actions/postsAction";
 import { Button, Modal, Form } from "react-bootstrap";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -21,8 +20,6 @@ const Blogform = () => {
     try {
       const post = await axios.post("https://api.tawwr.com/posts", blog);
       dispatch(addPost(post));
-      const response = await axios.get("https://api.tawwr.com/posts");
-      dispatch(getAllPosts(response.data.data));
     } catch (e) {
       console.log(e);
     }

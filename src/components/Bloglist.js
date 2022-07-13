@@ -15,14 +15,13 @@ const Bloglist = () => {
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [postList]);
 
   return (
-    <div>
-      {postList.map((post) => (
-        <Blog key={post.id} post={post} getData={getData} />
+    <div className="mt-5">
+      {postList.map((post, idx) => (
+        <Blog key={idx} post={post} getData={getData} />
       ))}
-      )
     </div>
   );
 };

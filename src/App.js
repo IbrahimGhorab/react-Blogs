@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import Login from "./page/Login";
 import Home from "./page/Home";
-import { ThemeProvider } from "./context/ThemeContext";
+
 
 function App() {
   const user = useSelector((state) => state.userReducer);
@@ -10,17 +10,15 @@ function App() {
   console.log(user);
 
   return (
-    <ThemeProvider>
-      <div
-        className="text-center"
-        style={{
-          height: user ? "100%" : "100vh",
-          backgroundColor: theme ? "#4E4E50" : "#E5E6EA",
-        }}
-      >
-        {user ? <Home /> : <Login user={user} />}
-      </div>
-    </ThemeProvider>
+    <div
+      className="p-5"
+      style={{
+        height: user ? "100%" : "100vh",
+        backgroundColor: theme ? "#4E4E50" : "#E5E6EA",
+      }}
+    >
+      {user ? <Home /> : <Login user={user} />}
+    </div>
   );
 }
 
